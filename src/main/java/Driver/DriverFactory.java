@@ -49,7 +49,9 @@ public class DriverFactory {
 
     public static WebDriver createSafari(){
         if (!System.getProperty("os.name").toLowerCase().contains("mac"))
+
             throw new WebDriverException("Your OS doesn't support Safari");
+
 //        WebDriverManager.safaridriver().setup();
         SafariOptions options = new SafariOptions();
         PropertyReaders pr = PropertyReaders.read();
