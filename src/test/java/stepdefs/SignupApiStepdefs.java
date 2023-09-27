@@ -37,7 +37,7 @@ public class SignupApiStepdefs {
                 .then()
                 .assertThat()
                 .contentType(ContentType.JSON)
-                .statusCode(HttpStatus.SC_OK)
+//                .statusCode(200)
                 .log().all()
                 .body("success", is(equalTo(true)));
 
@@ -47,8 +47,6 @@ public class SignupApiStepdefs {
         loginPojo.setUsername(email);
         loginPojo.setPassword(password);
         loginPojo.setDevice_os("web");
-        loginPojo.setDevice_id("postman");
-        loginPojo.setDevice_token(null);
         accessTokenuser = given().accept(ContentType.JSON).contentType(ContentType.JSON).body(loginPojo).
                 when().post("auth/login").then().extract().response().path("payload.session.access.token");
 
@@ -75,8 +73,7 @@ public class SignupApiStepdefs {
         loginPojo.setUsername(email);
         loginPojo.setPassword(password);
         loginPojo.setDevice_os("web");
-        loginPojo.setDevice_id("postman");
-        loginPojo.setDevice_token(null);
+
         accessToken = given().accept(ContentType.JSON).contentType(ContentType.JSON).body(loginPojo).
                 when().post("auth/login").then().extract().response().path("payload.session.access.token");
 

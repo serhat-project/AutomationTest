@@ -37,4 +37,14 @@ public class PropertyReaders {
     public void set(String key,String value){
         properties.setProperty(key,value);
     }
+
+    public void save() {
+        try {
+            writer = new FileWriter(file);
+            properties.store(writer, "");
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+}
 }

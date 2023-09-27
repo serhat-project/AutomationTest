@@ -4,9 +4,8 @@ import Driver.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import readers.property.PropertyReaders;
+import stepdefs.UpdateExtentProperties;
 
 import static io.restassured.RestAssured.baseURI;
 
@@ -26,16 +25,17 @@ public class Hooks {
 //        Driver.quitDriver();
 //
 //   }
+
     @After(value = "@lang4")
     public void close(){
         Driver.quitDriver();
     }
 
 
-    @After(order = 1)
-    public void after1(Scenario scenario) {
-        if (scenario.isFailed()) {
-            BaseSteps.takeScreenShot();
-        }
-    }
+//    @After(order = 1)
+//    public void after1(Scenario scenario) {
+//        if (scenario.isFailed()) {
+//            BaseSteps.takeScreenShot();
+//        }
+//    }
 }
