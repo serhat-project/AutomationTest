@@ -22,6 +22,7 @@ public class DriverFactory {
         for (String str : pr.get("edge.options").split(",")) {
             options.addArguments(str.trim());
         }
+
         return new EdgeDriver(options);
     }
 
@@ -39,6 +40,7 @@ public class DriverFactory {
 //        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         PropertyReaders pr = PropertyReaders.read();
+
         for (String str : pr.get("chrome.options").split(",")) {
             options.addArguments(str.trim());
         }
