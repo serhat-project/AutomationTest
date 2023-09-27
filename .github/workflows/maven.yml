@@ -30,7 +30,7 @@ jobs:
       run: mvn test -Dtestng.xml=testng.xml -Dcucumber.options=--plugin com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:test-output/ExtentReport/report.html
 
     - name: Copy report file to gh-pages branch
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@v3
       with:
         folder: test-output/ExtentReport/report.html
         destination: /reports
@@ -40,6 +40,6 @@ jobs:
         mv /reports/report.html /reports/SmokeTest-$(date +%Y%m%d%H%M%S).html
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
